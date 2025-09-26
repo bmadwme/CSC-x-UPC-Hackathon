@@ -1,7 +1,14 @@
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-const { uploadMedia } = require("../controllers/mediaController");
+
+
+
+
+const { 
+  uploadMedia,
+  deleteMedia,
+} = require("../controllers/mediaController");
 
 const router = express.Router();
 
@@ -33,5 +40,11 @@ const upload = multer({ storage });
 //   media: <file>
 //   event_id: <uuid of the event>
 router.post("/upload", upload.single("media"), uploadMedia);
+
+
+// {
+//   "mediaUUID": "uuid-of-the-media-to-delete"
+// }
+router.delete("/delete", deleteMedia);
 
 module.exports = router;

@@ -20,11 +20,11 @@ services:
 
   database:
     image: postgres:15
-    container_name: event_database
+    container_name: events_database
     restart: always
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: events_database
 
     ports:
